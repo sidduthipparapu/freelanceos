@@ -10,6 +10,7 @@ import Clients from './pages/Clients';
 import Projects from './pages/Projects';
 import Sessions from './pages/Sessions';
 import Invoices from './pages/Invoices';
+import Profile from './pages/Profile';
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -30,6 +31,7 @@ const AppRoutes = () => {
         <Route path="/projects" element={<PrivateRoute><Projects /></PrivateRoute>} />
         <Route path="/sessions" element={<PrivateRoute><Sessions /></PrivateRoute>} />
         <Route path="/invoices" element={<PrivateRoute><Invoices /></PrivateRoute>} />
+        <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
       </Routes>
     </>
   );
@@ -46,3 +48,6 @@ const App = () => {
 };
 
 export default App;
+
+
+

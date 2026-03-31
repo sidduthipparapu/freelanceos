@@ -41,4 +41,13 @@ export const updateInvoice = (id, data) => API.put(`/invoices/${id}`, data);
 export const deleteInvoice = (id) => API.delete(`/invoices/${id}`);
 
 // Dashboard
-export const getDashboard = () => API.get('/dashboard');
+export const getDashboard = (date) => API.get(date ? `/dashboard?date=${date}` : '/dashboard');
+
+// Profile
+export const getProfile = () => API.get('/profile');
+export const updateProfile = (data) => API.put('/profile', data);
+export const uploadProfileImage = (formData) => API.post('/profile/upload', formData, {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+  },
+});
