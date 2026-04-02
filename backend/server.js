@@ -12,21 +12,10 @@ connectDB();
 
 const app = express();
 
-// CORS — allows both local and production frontend
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://freelanceos.vercel.app',
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json());

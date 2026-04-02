@@ -11,7 +11,6 @@ const Dashboard = () => {
     setLoading(true);
     setError('');
     try {
-      const url = date ? `/dashboard?date=${date}` : '/dashboard';
       const res = await getDashboard(date);
       setStats(res.data);
     } catch (err) {
