@@ -30,7 +30,8 @@ const Navbar = () => {
 
   const getImageUrl = (filename) => {
     if (!filename) return null;
-    return `http://localhost:5000/uploads/${filename}`;
+    const base = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+    return `${base}/uploads/${filename}`;
   };
 
   return (

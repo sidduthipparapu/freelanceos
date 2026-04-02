@@ -91,7 +91,8 @@ const Profile = () => {
 
   const getImageUrl = (filename) => {
     if (!filename) return null;
-    return `http://localhost:5000/uploads/${filename}`;
+    const base = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+    return `${base}/uploads/${filename}`;
   };
 
   if (loading) return <p className="text-center mt-10">Loading profile...</p>;

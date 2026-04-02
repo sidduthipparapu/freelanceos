@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
 const API = axios.create({
-  baseURL: baseURL,
+  baseURL: `${BACKEND_URL}/api`,
 });
 
 API.interceptors.request.use((req) => {
@@ -53,3 +53,5 @@ export const uploadProfileImage = (formData) => API.post('/profile/upload', form
     'Content-Type': 'multipart/form-data',
   },
 });
+
+export const BACKEND_BASE_URL = BACKEND_URL;
